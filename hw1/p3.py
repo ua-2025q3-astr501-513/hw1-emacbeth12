@@ -84,7 +84,7 @@ def quadratic(a, b, c):
 
     # two real roots exist
     if (b**2 - 4*a*c) > 0:
-        x1 = (-b - sign*b * (b**2 - 4*a*c)**(0.5)) / (2*a)
+        x1 = (-b - sign * (b**2 - 4*a*c)**(0.5)) / (2*a)
         x2 = (c / a) / x1
 
         if x2 < x1:
