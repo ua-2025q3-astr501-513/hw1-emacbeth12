@@ -55,9 +55,17 @@ class CoupledOscillators:
                     K[i,j] = -1*k
     
         # TODO: Solve the eigenvalue problem for K to find normal modes
-
+        # divide by m to solve for w^2 as eigenvalues
+        eigenvalues, eigenvectors = np.linalg.eig(K / m)   
+        
         # TODO: Store angular frequencies and eigenvectors
+        # take square root so values are omega
+        Omega = np.sqrt(eigenvalues)
+        V = eigenvectors
+
         # TODO: Compute initial modal amplitudes M0 (normal mode decomposition)
+        # move to mode space 
+        M0 = V.T @ X0
 
     def __call__(self, t):
         """Calculate the displacements of the oscillators at time t.
@@ -70,7 +78,9 @@ class CoupledOscillators:
 
         """
         # TODO: Reconstruct the displacements from normal modes
-
+        M = self.M0 * np.cos(self.Omega * t)
+        # move back into position space
+        return self.V @ M
 
 if __name__ == "__main__":
 
