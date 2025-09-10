@@ -75,7 +75,7 @@ def quadratic(a, b, c):
     # determine the roots
     # no real roots exist
     if (b**2 - 4*a*c) < 0:
-        x1, x2 = None
+        x1, x2 = None, None
 
     # only one real root exists
     if (b**2 - 4*a*c) == 0:
