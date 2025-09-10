@@ -51,7 +51,7 @@ class CoupledOscillators:
             for j in range(K.shape[1]):
                 if i == j:
                     K[i, j] = 2*k
-                else:
+                elif abs(i-j) == 1:
                     K[i,j] = -1*k
     
         # TODO: Solve the eigenvalue problem for K to find normal modes
