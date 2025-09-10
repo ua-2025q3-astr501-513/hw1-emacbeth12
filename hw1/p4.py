@@ -25,7 +25,6 @@
 
 import numpy as np
 
-
 class CoupledOscillators:
     """A class to model a system of coupled harmonic oscillators.
 
@@ -46,7 +45,17 @@ class CoupledOscillators:
 
         """
         # TODO: Construct the stiffness matrix K
+        # construct the stiffness matrix K generally
+        K = np.zeros((len(X0), len(X0)))
+        for i in range(K.shape[0]):
+            for j in range(K.shape[1]):
+                if i == j:
+                    K[i, j] = 2*k
+                else:
+                    K[i,j] = -1*k
+    
         # TODO: Solve the eigenvalue problem for K to find normal modes
+
         # TODO: Store angular frequencies and eigenvectors
         # TODO: Compute initial modal amplitudes M0 (normal mode decomposition)
 
